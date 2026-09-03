@@ -19,6 +19,12 @@ environment on the latest Actions run.
 To deploy manually, use the "Run workflow" button on the
 **Deploy to GitHub Pages** Actions workflow.
 
+## A/B testing
+
+`public/ab-test.js` provides minimal client-side A/B testing for headline/CTA
+copy — no backend, no third-party platform. See `docs/ab-testing.md` for how
+to add an experiment and read results.
+
 ## Custom domain
 
 `usevia.io` DNS is not yet pointed at this deployment — that requires a
