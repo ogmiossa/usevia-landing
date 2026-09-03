@@ -68,6 +68,9 @@
         if (!response.ok) {
           throw new Error("Submission failed");
         }
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "generate_lead");
+        }
         form.reset();
         setStatus("Thanks! We'll be in touch.", "success");
       })

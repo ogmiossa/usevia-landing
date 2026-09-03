@@ -26,15 +26,40 @@ body {
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.75rem, 4vw, 3rem);
   margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tagline {
   color: var(--muted);
   font-size: 1.1rem;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.value-list {
+  list-style: none;
+  margin: 1.75rem auto 2rem;
+  padding: 0;
+  max-width: 440px;
+  text-align: left;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.value-list li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+
+.value-list strong {
+  display: block;
+  margin-bottom: 0.15rem;
 }
 
 /* Lead capture form (see lead-form.js) */

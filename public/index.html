@@ -3,14 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Via Sales Department</title>
-  <meta name="description" content="Via Sales Department." />
+  <title>Via | Your Sales Department, Minus the Headcount</title>
+  <meta name="description" content="Via runs outbound prospecting and follow-up on autopilot, so qualified conversations keep landing on your calendar." />
+  <link rel="canonical" href="https://usevia.io/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0b0d12" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Via Sales Department" />
+  <meta property="og:url" content="https://usevia.io/" />
+  <meta property="og:title" content="Via | Your Sales Department, Minus the Headcount" />
+  <meta property="og:description" content="Via runs outbound prospecting and follow-up on autopilot, so qualified conversations keep landing on your calendar." />
+  <meta property="og:image" content="https://usevia.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Via | Your Sales Department, Minus the Headcount" />
+  <meta name="twitter:description" content="Via runs outbound prospecting and follow-up on autopilot, so qualified conversations keep landing on your calendar." />
+  <meta name="twitter:image" content="https://usevia.io/og-image.png" />
+
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!--
+    Analytics: GA4. No-ops until a real Measurement ID replaces the
+    placeholder below — see README "Analytics" for the one-line activation
+    step. ab-test.js and lead-form.js already report events via `gtag` if
+    it's present, so no code changes are needed once this ID is set.
+  -->
+  <script>
+    window.__VIA_GA_MEASUREMENT_ID = "REPLACE_WITH_GA4_MEASUREMENT_ID";
+  </script>
+  <script src="analytics.js" defer></script>
 </head>
 <body>
   <main class="hero">
-    <h1>Via Sales Department</h1>
-    <p class="tagline" data-via-exp="tagline">Something new is on the way.</p>
+    <h1>Your sales department, minus the headcount.</h1>
+    <p class="tagline" data-via-exp="tagline">Via runs outbound prospecting and follow-up on autopilot, so qualified conversations keep landing on your calendar.</p>
+
+    <ul class="value-list">
+      <li><strong>Always-on prospecting</strong> — new leads found and reached every day, no SDR team required.</li>
+      <li><strong>Follow-up that never drops</strong> — every lead gets timely, personalized follow-up until they respond.</li>
+      <li><strong>Qualified meetings, not just contacts</strong> — only sales-ready conversations land on your calendar.</li>
+    </ul>
 
     <section class="signup" aria-labelledby="signup-heading">
       <h2 id="signup-heading">Get notified when we launch</h2>
@@ -27,12 +67,12 @@
         <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="_subject" value="New usevia.io lead" />
         <input type="hidden" name="_next" value="thank-you.html" />
-        <button type="submit">Notify me</button>
+        <button type="submit" data-via-conversion="tagline">Notify me</button>
         <p id="lead-form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
-  <script src="ab-test.js"></script>
+  <script src="ab-test.js" defer></script>
   <script src="lead-form.js" defer></script>
 </body>
 </html>

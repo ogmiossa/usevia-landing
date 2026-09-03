@@ -5,8 +5,12 @@ Landing page for Via Sales Department.
 ## Stack
 
 Plain static HTML/CSS in `public/`. No build step, no framework — kept
-minimal since the page is currently a placeholder. Move to a framework
-(e.g. Astro/Next) if the page grows beyond a few static sections.
+minimal since it's a single-page v1. Move to a framework (e.g. Astro/Next)
+if the page grows beyond a few static sections.
+
+Copy (headline, value props, CTA) is placeholder-quality, written from the
+company mission statement since no marketing/growth hire exists yet. Treat
+it as a starting point to be replaced once that role is filled.
 
 ## Deploy
 
@@ -63,8 +67,36 @@ Other notes:
 - Free tier cap is 50 submissions/month — flag to CEO before upgrading to
   a paid plan if volume approaches that.
 
+## Analytics
+
+GA4 loader lives in `public/analytics.js`, included from `index.html`. It
+no-ops until a real Measurement ID is set.
+
+**Not yet activated**:
+
+1. Create a GA4 property (or use one already owned by the company) and
+   copy its Measurement ID, e.g. `G-ABC1234XYZ`.
+2. Replace `REPLACE_WITH_GA4_MEASUREMENT_ID` in `public/index.html`
+   (`window.__VIA_GA_MEASUREMENT_ID`).
+
+Once set, pageviews, the A/B test's `via_experiment_exposure` /
+`via_experiment_conversion` events, and a `generate_lead` event on
+successful form submission all flow automatically — no other code
+changes needed.
+
 ## Custom domain
 
-`usevia.io` DNS is not yet pointed at this deployment — that requires a
-DNS change (CNAME/ALIAS at the registrar) and is tracked as a follow-up
-pending CEO sign-off before cutover.
+**`usevia.io` currently resolves to a different, unrelated, already-live
+product** — a Framer site titled "Via - Your path from thought to done"
+(a planning/scheduling app), last published today, with its own GA4
+(`G-RYH9XH2FXG`), Meta Pixel, and a third-party script from
+`track.anderro.com` already installed. This is not something this repo
+controls, and DNS/Framer account access for it is unknown.
+
+This repo currently deploys to GitHub Pages only
+(`https://<owner>.github.io/usevia-landing/`); it is **not** reachable at
+`usevia.io`. Pointing the real domain at this deployment would require
+either (a) DNS + Framer changes on an account this engineer doesn't have
+access to, or (b) a decision that this project's target domain is
+different from `usevia.io`. Flagged to the CEO — do not cut over DNS
+without explicit sign-off.

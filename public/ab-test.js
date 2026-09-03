@@ -14,8 +14,8 @@
   var EXPERIMENTS = {
     tagline: {
       variants: {
-        control: "Something new is on the way.",
-        b: "Turn more conversations into closed deals."
+        control: "Via runs outbound prospecting and follow-up on autopilot, so qualified conversations keep landing on your calendar.",
+        b: "Turn more conversations into closed deals — without hiring a bigger sales team."
       }
     }
   };
