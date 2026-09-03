@@ -18,6 +18,17 @@
 
   var isEndpointConfigured = FORM_ENDPOINT.indexOf("REPLACE_WITH") === -1;
 
+  function applyUtmFields() {
+    var utm = window.viaUTM || {};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "landing_page"].forEach(
+      function (key) {
+        var field = form.querySelector('[name="' + key + '"]');
+        if (field && utm[key]) field.value = utm[key];
+      }
+    );
+    return utm;
+  }
+
   function setStatus(message, tone) {
     status.textContent = message;
     status.className = "form-status" + (tone ? " form-status--" + tone : "");
@@ -54,6 +65,8 @@
       return;
     }
 
+    var utm = applyUtmFields();
+
     submitButton.disabled = true;
     var originalText = submitButton.textContent;
     submitButton.textContent = "Sending…";
@@ -69,7 +82,7 @@
           throw new Error("Submission failed");
         }
         if (typeof window.gtag === "function") {
-          window.gtag("event", "generate_lead");
+          window.gtag("event", "generate_lead", utm);
         }
         form.reset();
         setStatus("Thanks! We'll be in touch.", "success");

@@ -40,6 +40,12 @@
     window.__VIA_GA_MEASUREMENT_ID = "REPLACE_WITH_GA4_MEASUREMENT_ID";
   </script>
   <script src="analytics.js" defer></script>
+  <!--
+    First-touch UTM/click-id capture (see README "Analytics"). Loaded
+    before ab-test.js/lead-form.js so window.viaUTM is populated by the
+    time either runs.
+  -->
+  <script src="utm.js" defer></script>
 </head>
 <body>
   <main class="hero">
@@ -67,6 +73,13 @@
         <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="_subject" value="New usevia.io lead" />
         <input type="hidden" name="_next" value="thank-you.html" />
+        <!-- Populated from window.viaUTM by lead-form.js at submit time (see utm.js). -->
+        <input type="hidden" name="utm_source" />
+        <input type="hidden" name="utm_medium" />
+        <input type="hidden" name="utm_campaign" />
+        <input type="hidden" name="utm_term" />
+        <input type="hidden" name="utm_content" />
+        <input type="hidden" name="landing_page" />
         <button type="submit" data-via-conversion="tagline">Notify me</button>
         <p id="lead-form-status" class="form-status" role="status" aria-live="polite"></p>
       </form>

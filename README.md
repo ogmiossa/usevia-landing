@@ -84,6 +84,25 @@ Once set, pageviews, the A/B test's `via_experiment_exposure` /
 successful form submission all flow automatically — no other code
 changes needed.
 
+### UTM / traffic-source attribution
+
+`public/utm.js` captures `utm_source`, `utm_medium`, `utm_campaign`,
+`utm_term`, `utm_content`, `gclid`, and `fbclid` from the landing URL's
+query string and stores them (first-touch — an already-stored value is
+never overwritten by a later visit) in `localStorage` under `via_utm`,
+exposed as `window.viaUTM`.
+
+This works independently of GA4 activation:
+
+- **Lead form**: `lead-form.js` copies `window.viaUTM` into hidden fields
+  on the form (`utm_source`, `utm_medium`, `utm_campaign`, `utm_term`,
+  `utm_content`, `landing_page`) right before submit, so every Formspree
+  lead notification shows which campaign it came from — no GA4 property
+  required.
+- **GA4** (once activated per above): the `generate_lead` event is fired
+  with the same UTM params as event params, and GA4's own campaign
+  auto-tagging separately attributes the session/pageview.
+
 ## SEO / social sharing
 
 `public/index.html` has meta title/description, canonical link, Open Graph
