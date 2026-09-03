@@ -84,6 +84,29 @@ Once set, pageviews, the A/B test's `via_experiment_exposure` /
 successful form submission all flow automatically — no other code
 changes needed.
 
+## SEO / social sharing
+
+`public/index.html` has meta title/description, canonical link, Open Graph
+and Twitter Card tags, and favicons (`favicon.ico`, `favicon-16.png`,
+`favicon-32.png`, `apple-touch-icon.png`). `public/og-image.png` (1200x630)
+is the share-preview image, generated to match the site's dark theme —
+swap it for a designed one once a marketer/designer is on board.
+`public/robots.txt` and `public/sitemap.xml` are served at the site root.
+
+All absolute URLs (canonical, `og:url`, `og:image`, `twitter:image`, the
+sitemap `<loc>`, and the `robots.txt` `Sitemap:` line) point at
+`https://ogmiossa.github.io/usevia-landing/`, **not** `usevia.io`, because
+of the domain conflict below — a sitemap/canonical pointing at a domain
+that doesn't serve this content is invalid and would make social scrapers
+fetch the wrong site. **Update all of these to the real domain once the
+custom-domain question is resolved** (search for
+`ogmiossa.github.io/usevia-landing` to find every occurrence).
+
+Ran a Lighthouse audit (desktop + mobile-throttled presets) against the
+current build: 100/100 on Performance, Accessibility, Best Practices, and
+SEO on both, LCP 0.2s (desktop) / 0.9s (mobile), CLS 0, TBT 0ms. No CWV
+concerns at this size — re-check after the page gains real images/fonts.
+
 ## Custom domain
 
 **`usevia.io` currently resolves to a different, unrelated, already-live

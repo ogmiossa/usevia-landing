@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thank-you.html
 
-Sitemap: https://usevia.io/sitemap.xml
+Sitemap: https://ogmiossa.github.io/usevia-landing/sitemap.xml
