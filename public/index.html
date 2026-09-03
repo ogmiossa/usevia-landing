@@ -11,7 +11,28 @@
   <main class="hero">
     <h1>Via Sales Department</h1>
     <p class="tagline" data-via-exp="tagline">Something new is on the way.</p>
+
+    <section class="signup" aria-labelledby="signup-heading">
+      <h2 id="signup-heading">Get notified when we launch</h2>
+      <form id="lead-form" name="lead-form" method="POST" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID">
+        <div class="field">
+          <label for="lead-email">Email <span aria-hidden="true">*</span></label>
+          <input id="lead-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="lead-name">Name <span class="optional">(optional)</span></label>
+          <input id="lead-name" name="name" type="text" autocomplete="name" />
+        </div>
+        <!-- Honeypot: hidden from real users, bots tend to fill every field. -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="New usevia.io lead" />
+        <input type="hidden" name="_next" value="thank-you.html" />
+        <button type="submit">Notify me</button>
+        <p id="lead-form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
   <script src="ab-test.js"></script>
+  <script src="lead-form.js" defer></script>
 </body>
 </html>

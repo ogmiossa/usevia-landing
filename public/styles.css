@@ -36,3 +36,91 @@ h1 {
   font-size: 1.1rem;
   margin: 0;
 }
+
+/* Lead capture form (see lead-form.js) */
+
+.signup {
+  margin-top: 2rem;
+  max-width: 360px;
+  text-align: left;
+}
+
+.signup h2 {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.signup .field {
+  margin-bottom: 0.75rem;
+}
+
+.signup label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.signup .optional {
+  font-weight: normal;
+}
+
+.signup input[type="email"],
+.signup input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.4rem;
+  border: 1px solid #2a2f3a;
+  background: #12151c;
+  color: var(--fg);
+  font-size: 1rem;
+}
+
+.signup input:focus-visible {
+  outline: 2px solid #6d8dfa;
+  outline-offset: 1px;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.signup button {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+  background: #6d8dfa;
+  color: #0b0d12;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.signup button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.form-status {
+  min-height: 1.2rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.form-status--success {
+  color: #6fe3a1;
+}
+
+.form-status--error {
+  color: #f28b82;
+}
+
+.form-status--pending {
+  color: var(--muted);
+}
